@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>회원가입</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="join.js" defer></script>
+    </head>
+    <body>
+        <h1>회원가입하기</h1><br />
+
+        <label>이메일 입력: </label>
+        <input type="text" name="email"><br />
+        
+        <label>비밀번호: </label>
+        <input type="password" name="password">
+        <label>비밀번호 확인: </label>
+        <input type="password" name="password-confirm"><br />
+
+        <label>닉네임 입력: </label>
+        <input type="text" name="nickname"><br />
+        <label class="alert">닉네임은 최대 20자까지 입력할 수 있습니다.</label>
+        
+        <br /><br /><br /><br />
+
+        <button onclick="tryJoin()">회원가입</button>
+
+    </body>
+</html>
