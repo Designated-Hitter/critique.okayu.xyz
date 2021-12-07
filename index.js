@@ -1,4 +1,4 @@
-;(() => {
+;(async() => {
     const token = localStorage.getItem(token)
     if(token) {
         const decoded = parseJWT(token);
@@ -6,16 +6,32 @@
         const myPage = document.querySelector('a');
         myPage.innerHTML = nickname + " 님";
     }
+    const recentCritique = document.querySelector('div.recent-critique');
     
+    const result = await axios({
+        "method": "get",
+        "url": "https://api.critique.okayu.xyz/critique/recent"  
+    })
+    const recentList = result.data.result;
+    const recentItemId = recentList.item_id;
+    console.log(recentList)
+
+    const resultCover = await axios({
+        "method": "get",
+        "url": `https://api.critique.okayu.xyz/critique/cover/${recentItemId}`
+    })
+    for(const item of recentList) {
+
+    }
 });
 
 async function search(keyword) {
-    const keyword = document.querySelector('input[name="book-search"]').value;
-    if(!keyword.trim) {
+    const searchword = document.querySelector('input[name="book-search"]').value;
+    if(!searchword.trim) {
         alert("검색어를 입력해주세요.");
         return;
     }
-    location.href=`search.html?keyword=${keyword}`;
+    location.href=`search.html?keyword=${searchword.trim}`;
 }
 
 function parseJWT (token) {
@@ -36,7 +52,7 @@ async function tryLogin() {
 
     const result = await axios({
         "method": "POST",
-        "url": "https://api.chat.okayu.xyz/user/login",
+        "url": "https://api.critique.okayu.xyz/user/login",
         "data": {
             "email": email,
             "password": password
