@@ -1,5 +1,5 @@
 ;(async() => {
-    const token = localStorage.getItem(token)
+    const token = localStorage.getItem("token");
     if(token) {
         const decoded = parseJWT(token);
         const nickname = decoded.nickname;
@@ -13,25 +13,45 @@
         "url": "https://api.critique.okayu.xyz/critique/recent"  
     })
     const recentList = result.data.result;
-    const recentItemId = recentList.item_id;
     console.log(recentList)
 
-    const resultCover = await axios({
-        "method": "get",
-        "url": `https://api.critique.okayu.xyz/critique/cover/${recentItemId}`
-    })
     for(const item of recentList) {
+        const article = document.createElement('div');
+        const articleNo = item.critique_no;
+        article.classList.add(`${articleNo}`);
+        
+        const cover = item.cover;
+        const recentCover = document.createElement('img');
+        recentCover.classList.add("cover")
+        recentCover.src = cover;
 
+        const nickname = item.nickname;
+        const recentNickname = document.createElement('div');
+        recentNickname.classList.add('nickname');
+        recentNickname.innerText = nickname;
+
+        const starGrade = item.star_grade;
+        const recentStarGrade = document.createElement('div');
+        recentStarGrade.classList.add('star-grade');
+        recentStarGrade.innerhtml = starGrade
+
+        const comment = item.comment;
+        const recentComment = document.createElement('div');
+        recentComment.classList.add('comment');
+        recentComment.innerText = comment;
+
+        article.append(recentCover, recentNickname, recentStarGrade, recentComment)
+        recentCritique.append(article)
     }
-});
+})();
 
-async function search(keyword) {
-    const searchword = document.querySelector('input[name="book-search"]').value;
-    if(!searchword.trim) {
+async function search() {
+    const searchword = document.querySelector('input[name="book-search"]').value.trim();
+    if(!searchword) {
         alert("검색어를 입력해주세요.");
         return;
     }
-    location.href=`search.html?keyword=${searchword.trim}`;
+    location.href=`search.html?keyword=${searchword}`;
 }
 
 function parseJWT (token) {
