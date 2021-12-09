@@ -7,9 +7,19 @@
         <script src="writeCritique.js" defer></script>
     </head>
     <body>
-        <div class="book-info"></div>
+        <div class="book-info">
+            <img class="cover">
+            <label class="author"></label>
+        </div>
+        <span class="star">
+            ★★★★★
+            <span>★★★★★</span>
+            <input name = 'star-grade' type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+        </span>
         <input name="comment"><br>
+        <label>한줄평은 최대 20자까지 작성가능합니다.</label>
         <textarea name="critique"><br>
         <button onclick="writeDocument()">작성하기</button>
+
     </body>
 </html>
