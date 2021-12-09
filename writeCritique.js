@@ -1,4 +1,4 @@
-;(async(() => {
+;(async() => {
     const token = localStorage.getItem("token");
 
     if(!token){
@@ -13,18 +13,19 @@
     const qs = new URLSearchParams(location.search)
     const authorData = qs.get("author");
     const coverAddress = qs.get("cover");
-
+    
     const cover = document.querySelector('img.cover');
     cover.src = coverAddress;
     const author = document.querySelector('label.author');
     author.innerHTML = "작가: " + authorData;
-    const drawStar = (target) => {
-        document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
-    }
+    // const drawStar = (target) => {
+    //     document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+    // }
 
-}))();
+})();
 
 async function writeDocument() {
+    const token = localStorage.getItem("token");
     const qs = new URLSearchParams(location.search)
     const itemId = qs.get("itemId");
 
@@ -36,11 +37,12 @@ async function writeDocument() {
         method: "POST",
         url: "https://api.critique.okayu.xyz/critique/write",
         data: {
-            "book_id": itemId,
-            "star_grade": starGrade,
+            "bookId": itemId,
+            "starGrade": starGrade,
             "comment": comment,
             "critique": critique
-        }
+        },
+        headers: { "Authorization": token }
     })
 
     if(result.data.error){
