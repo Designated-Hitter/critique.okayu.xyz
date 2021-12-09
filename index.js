@@ -3,8 +3,12 @@
     if(token) {
         const decoded = parseJWT(token);
         const nickname = decoded.nickname;
-        const myPage = document.querySelector('a');
+        const myPage = document.querySelector('a.myPage');
         myPage.innerHTML = nickname + " 님";
+        const loginBox = document.querySelector('div.login-box');
+        loginBox.style.display = "none";
+        const myPageBox = document.querySelector('div.my-page');
+        myPageBox.style.display = "";
     }
     const recentCritique = document.querySelector('div.recent-critique');
     
@@ -13,9 +17,10 @@
         "url": "https://api.critique.okayu.xyz/critique/recent"  
     })
     const recentList = result.data.result;
-    console.log(recentList)
 
     for(const item of recentList) {
+        const a = document.createElement('a');
+        a.href = `readOneCritique.html?critique_no=${item.critique_no}`
         const article = document.createElement('div');
         const articleNo = item.critique_no;
         article.classList.add(`${articleNo}`);
@@ -41,7 +46,8 @@
         recentComment.innerText = comment;
 
         article.append(recentCover, recentNickname, recentStarGrade, recentComment)
-        recentCritique.append(article)
+        a.append(article)
+        recentCritique.append(a)
     }
 })();
 
@@ -55,12 +61,15 @@ async function search() {
 }
 
 function parseJWT (token) {
-    try {
-        return JSON.parse(atob(token.split('.')[1]));
-    } catch(e) {
-        return null;
-    }
-}
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
 
 async function tryJoin() {
     location.href = 'join.html';
@@ -80,24 +89,29 @@ async function tryLogin() {
     });
 
     if (result.data.success){
-        document.getElementById('login-box').style.display="none"
-        document.getElementById('my-page').style.display=""
+        const token = result.data.token;
+        localStorage.setItem("token", token);
         location.reload();
     } else {
         alert(result.data.error);
     }
 }
 
+async function tryLogout() {
+    localStorage.removeItem("token")
+    location.href = "index.html"
+}
+
 async function myPage() {
-    location.href="myPage.html"
+    location.href = "myPage.html"
 }
 
 async function updateInfo() {
-    location.href="personalInfo.html"
+    location.href = "personalInfo.html"
 }
 
 async function iForgot() {
-    location.href="forgot.html"
+    location.href = "forgot.html"
 }
 
 async function enterkey() {
