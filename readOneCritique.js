@@ -14,29 +14,31 @@
     const cover = document.querySelector('img.cover');
     cover.src = bookData.cover;
     const title = document.querySelector('label.title');
-    title.innerHTML = bookData.title;
+    title.innerHTML = "제목: " + bookData.title;
     const author = document.querySelector('label.author');
-    author.innerHTML = bookData.author;
+    author.innerHTML = "저자: " + bookData.author;
     const nickname = document.querySelector('label.nickname');
-    nickname.innerHTML = bookData.nickname;
+    nickname.innerHTML = "리뷰어: " + bookData.nickname;
     const starGrade = document.querySelector('label.star-grade');
     starGrade.innerHTML = bookData.star_grade;
     const comment = document.querySelector('label.comment');
-    comment.innerHTML = bookData.comment;
+    comment.innerHTML = "한줄평: " + bookData.comment;
     //긴 서평은 나만 볼수 있게
     if(bookData.nickname == myNickname){
         const secret = document.querySelector('label.secret');
         const critique = document.createElement('div.critique');
-        critique.innerText = bookData.critique;
+        critique.innerText = "총평: " + bookData.critique;
         secret.append(critique);
     }
     //수정 삭제 버튼은 나만 볼 수 있게
     if(bookData.nickname == myNickname){
         const footer = document.querySelector('footer');
-        const deleteButton = document.createElement('button.delete');
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add("delete");
         deleteButton.innerText = "삭제";
         deleteButton.addEventListener("click", () =>{deleteThisCritique(critiqueNo)});
-        const modifyButton = document.createElement('button.modify');
+        const modifyButton = document.createElement('button');
+        modifyButton.classList.add("modify");
         modifyButton.innerText = "수정";
         modifyButton.addEventListener("click", () => {modifyThisCritique(critiqueNo)});
         footer.append(deleteButton, modifyButton)
@@ -69,7 +71,6 @@ async function deleteThisCritique(critiqueNo){
         return;
     }
 }
-
 
 function parseJWT (token) {
     const base64Url = token.split('.')[1];
