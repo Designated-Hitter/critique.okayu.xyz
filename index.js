@@ -33,7 +33,7 @@
         const nickname = item.nickname;
         const recentNickname = document.createElement('div');
         recentNickname.classList.add('nickname');
-        recentNickname.innerText = nickname;
+        recentNickname.innerText = nickname + " 님";
 
         const starGrade = item.star_grade;
         const recentStarGrade = document.createElement('div');
