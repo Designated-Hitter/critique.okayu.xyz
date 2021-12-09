@@ -36,7 +36,7 @@
         resultPublisher.innerText = "출판사: " + publisher ;
 
         const writeComment = document.createElement('button');
-        writeComment.addEventListener("click", () => {writeCritique(itemId, )});
+        writeComment.addEventListener("click", () => {writeCritique(itemId, author, cover)});
         writeComment.innerText = "서평 쓰기"
 
         const searchedBook = document.createElement('div');
@@ -47,9 +47,11 @@
     }
 })()
 
-async function writeCritique(keyword) {
-    const itemId = keyword;
-    location.href = `writeCritique.html?itemId=${itemId}&author=${author}&cover=${cover}`;
+async function writeCritique(itemId, author, cover) {
+    const writeItemId = itemId;
+    const writeAuthor = author;
+    const writeCover = cover;
+    location.href = `writeCritique.html?itemId=${writeItemId}&author=${writeAuthor}&cover=${writeCover}`;
 }
 
 async function aladinSearch(){ 
