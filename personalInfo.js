@@ -35,3 +35,27 @@ async function tryUpdateInfo() {
     }
 
 }
+async function tryDeleteInfo() {
+    const token = localStorage.getItem("token");
+    const response = confirm('정말로 탈퇴하시겠습니까?')
+
+    if (response) {
+        const passwordInput = prompt('비밀번호를 입력해주십시오.');
+
+        const result = await axios({
+            method: "DELETE",
+            url: "https://api.critique.okayu.xyz/user/delete",
+            data: { password: passwordInput },
+            headers: { Authorization: token }
+        });
+
+        if (!result.data.success) {
+            alert(result.data.error);
+            return;
+        } else {
+            alert(result.data.message);
+            localStorage.removeItem("token");
+            location.href = 'index.html';
+        };
+    };
+};
