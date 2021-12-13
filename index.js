@@ -103,7 +103,7 @@ async function tryLogout() {
 }
 
 async function myPage() {
-    location.href = "myPage.html"
+    location.href = `myPage.html`
 }
 
 async function updateInfo() {
