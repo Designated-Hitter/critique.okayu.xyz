@@ -1,9 +1,16 @@
 ;(async() => {
     const token = localStorage.getItem("token");
+    const decoded = parseJWT(token);
+    const verified = decoded.verified;
 
     if(!token){
         alert("로그인 후 이용할 수 있는 기능입니다.");
-        location.href(index.html);
+        location.href = 'index.html';
+    };
+
+    if(!verified) {
+        alert('이메일 인증 후 이용할 수 있는 기능입니다.');
+        location.href = 'mypage.html';
     };
 
     const decoded = parseJWT(token);
