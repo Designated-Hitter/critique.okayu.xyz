@@ -31,7 +31,7 @@ async function tryJoin() {
 
     if (result.data.success){
         alert(result.data.message);
-        location.href = 'login.html';
+        location.href = 'index.html';
     }else {
         alert(result.data.error);
     }
