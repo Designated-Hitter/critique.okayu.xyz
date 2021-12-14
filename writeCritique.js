@@ -13,10 +13,6 @@
         location.href = 'mypage.html';
     };
 
-    const decoded = parseJWT(token);
-    const email = decoded.email;
-    const nickname = decoded.nickname;
-
     const qs = new URLSearchParams(location.search)
     const authorData = qs.get("author");
     const coverAddress = qs.get("cover");
