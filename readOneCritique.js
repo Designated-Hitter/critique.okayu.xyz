@@ -10,7 +10,6 @@
         url: `https://api.critique.okayu.xyz/critique/critique_no/${critiqueNo}`
     })
     const bookData = result.data.result;
-
     const cover = document.querySelector('img.cover');
     cover.src = bookData.cover;
     const title = document.querySelector('label.title');
@@ -20,7 +19,7 @@
     const nickname = document.querySelector('label.nickname');
     nickname.innerHTML = "리뷰어: " + bookData.nickname;
     const starGrade = document.querySelector('label.star-grade');
-    starGrade.innerHTML = bookData.star_grade;
+    starGrade.innerHTML = "평점: " + bookData.star_grade;
     const comment = document.querySelector('label.comment');
     comment.innerHTML = "한줄평: " + bookData.comment;
     //긴 서평은 나만 볼수 있게
