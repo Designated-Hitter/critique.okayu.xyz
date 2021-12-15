@@ -10,6 +10,9 @@
         url: `https://api.critique.okayu.xyz/critique/critique_no/${critiqueNo}`
     })
     const bookData = result.data.result;
+    const a = document.querySelector('a[name="to-entire-critique"]');
+    a.classList.add(`to-entire-critique-${bookData.book_id}`);
+    a.href = `/readManyCritiques.html?book_id=${bookData.book_id}`;
     const cover = document.querySelector('img.cover');
     cover.src = bookData.cover;
     const title = document.querySelector('label.title');
