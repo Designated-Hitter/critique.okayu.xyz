@@ -20,7 +20,6 @@ async function tryReset() {
     } else {
         alert(result.data.error);
         return;
-        
     };
 
 }
