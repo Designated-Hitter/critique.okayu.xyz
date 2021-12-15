@@ -11,6 +11,11 @@
     for(const item of list){
         const itemId = item.item_id;
         const cover = item.cover;
+
+        const a = document.createElement('a');
+        a.classList.add(`to-entire-critique-${itemId}`)
+        a.href = `readManyCritiques.html?book_id=${itemId}`
+
         const resultCover = document.createElement('img');
         resultCover.classList.add('cover');
         resultCover.src = cover;
@@ -19,6 +24,7 @@
         const resultTitle = document.createElement('div');
         resultTitle.classList.add('title');
         resultTitle.innerText = "제목: " + title;
+        a.append(resultCover, resultTitle);
 
         const author = item.author;
         const resultAuthor = document.createElement('div');
@@ -42,7 +48,7 @@
         const searchedBook = document.createElement('div');
         searchedBook.classList.add("searched");
 
-        searchedBook.append(resultCover, resultTitle, resultAuthor, resultCategory, resultPublisher, writeComment);
+        searchedBook.append(a, resultAuthor, resultCategory, resultPublisher, writeComment);
         searchResult.append(searchedBook)
     }
 })()
