@@ -1,4 +1,5 @@
 ;(async () => {
+    const page = Number(new URLSearchParams(location.search).get("page") ?? 1);
     const token = localStorage.getItem("token");
     const decoded = parseJWT(token);
     if(!token) {
@@ -49,6 +50,52 @@
 
         recentMyCritique.append(cover, starGrade, comment, deleteThis, updateThis);
     }
+
+    //페이지 네이션
+    const numberOfSearches = result.data.number_of_critiques;
+    const firstPageOfAll = 1;
+    const lastPageOfAll = Math.ceil(numberOfSearches / 10);
+    console.log(lastPageOfAll)
+    const firstPageOfThis = (Math.ceil(page / 10) - 1) * 10 + 1;
+    console.log(firstPageOfThis)
+    const lastPageOfThis = Math.ceil(page / 10) * 10;
+    console.log(lastPageOfThis)
+    const displayFirstPage = firstPageOfAll > firstPageOfThis ? firstPageOfAll : firstPageOfThis;
+    console.log(displayFirstPage)
+    const displayLastPage = lastPageOfAll > lastPageOfThis ? lastPageOfThis : lastPageOfAll;
+    console.log(displayLastPage)
+
+    const pagination = document.querySelector("div.page");
+
+    if(displayFirstPage !== firstPageOfAll) {
+        const aPage = document.createElement('a');
+        aPage.href = `myPage.html?page=${displayFirstPage - 1}`;
+        aPage.innerText = "이전 페이지";
+
+        pagination.append(aPage);
+    }
+
+    for (let p = displayFirstPage; p <= displayLastPage; p++) {
+        const aPage = document.createElement('a');
+        aPage.href = `myPage.html?page=${p}`;
+        aPage.innerText = p;
+        
+        if(p === page) {
+            aPage.classList.add('now-page');
+        }
+        pagination.append(aPage);
+    }
+
+    if (displayLastPage !== lastPageOfAll) {
+        const aPage = document.createElement('a');
+        aPage.href = `myPage.html?page=${displayLastPage + 1}`;
+        aPage.innerText = "다음 페이지";
+
+        pagination.append(aPage);
+    }
+
+
+    //개인정보 구역
     const updatePersonalInfo = document.querySelector('div[name="updateMyInfo"]');
     const updatePersonalInfoButton = document.createElement("button");
     updatePersonalInfoButton.classList.add("update-personal-info");
