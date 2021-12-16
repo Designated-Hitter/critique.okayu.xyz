@@ -9,7 +9,11 @@
 
     const list = result.data.result;
     const searchResult = document.querySelector('div.search-result');
-
+    const labelSearching = document.querySelector('label.searching');
+    if(!list.length) {
+        labelSearching.innerText = "검색결과가 없습니다.";
+        return;
+    }
     for(const item of list){
         const itemId = item.item_id;
         const cover = item.cover;
@@ -52,7 +56,12 @@
 
         searchedBook.append(a, resultAuthor, resultCategory, resultPublisher, writeComment);
         searchResult.append(searchedBook);
-    };
+
+        labelSearching.innerText = "";
+    }
+    
+
+    
 
     //페이지네이션
     const numberOfSearches = result.data.number_of_searches;
