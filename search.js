@@ -17,15 +17,18 @@
         a.classList.add(`to-entire-critique-${itemId}`);
         a.href = `readManyCritiques.html?book_id=${itemId}`;
 
+        const imgBox = document.createElement('div');
+        imgBox.classList.add('imgBox');
         const resultCover = document.createElement('img');
         resultCover.classList.add('cover');
         resultCover.src = cover;
+        imgBox.append(resultCover);
         
         const title = item.title;
         const resultTitle = document.createElement('div');
         resultTitle.classList.add('title');
         resultTitle.innerText = "제목: " + title;
-        a.append(resultCover, resultTitle);
+        a.append(imgBox, resultTitle);
 
         const author = item.author;
         const resultAuthor = document.createElement('div');
