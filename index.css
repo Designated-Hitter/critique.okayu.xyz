@@ -1,0 +1,168 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: block;
+    width: 100%;
+    margin: 0 auto !important;
+    background-color: #eee !important;
+    max-width: 1106px;
+}
+
+div.page-top{
+    height: 120px;
+    position: relative;
+    overflow: auto;
+}
+
+div.search{
+    border-radius: 5px;
+    border: 3px solid #e27dff; 
+    width: calc(70% - 20px);
+    height: 100px;
+    display: inline-block;
+    position: absolute;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+input#book-search{
+    width: 90%;
+    height: 90%;
+    display: inline-block;
+    font-size: 20px;
+
+}
+
+button.search{
+    width:  8%;
+    height: 90%;
+    display: inline-block;
+    text-align: center;
+}
+
+div.login-box{
+    border-radius: 5px;
+    width: calc(30% - 20px);
+    height: 100px;
+    border: 3px solid #e27dff;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div.id-and-password{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button.login{
+    display: inline-block;
+    vertical-align: middle;
+    height: 52px;
+}
+
+div.my-page{
+    border-radius: 5px;
+    border: 3px solid #e27dff;
+    margin: 10px;
+    padding: 10px;
+    width: calc(30% - 20px);
+    height: 100px;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+a.myPage{
+    font-size: 20px;
+    color: #aa544d;
+}
+
+button.update{
+    width: 105px;
+    margin-right: 5px;
+}
+
+button.log-out{
+    width: 105px;
+    margin-left: 5px;
+}
+
+a.myPage{
+    cursor: pointer;
+}
+
+div.recent-critique{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: #e27dff;
+    display: inline-block;
+}
+
+label.recent-critique{
+    display: block;
+    font-size: 20px;
+}
+
+div.recent-article{
+    border: 1px solid;
+    border-color: rgb(207, 207, 207);;
+    background-color: rgb(207, 207, 207);
+    display: inline-block;
+    border-radius: 3px;
+    width: 202px; 
+    height: 332px;
+    margin: 5px;
+    padding: 5px;
+    transition: all 0.5s;
+    transition-delay: 0.4s;
+}
+
+div.recent-article:hover{
+    box-shadow: 10px 10px 30px black;
+}
+
+a.to-critique{
+    display: inline-block;
+    overflow: auto;
+}
+
+div.imgBox{
+    width: 190px;
+    height:280px;
+}
+
+img.cover{
+ width: 100%;
+ height: 100%;
+ object-fit: contain;
+}
+
+div.nickname{
+    font-size: 13px;
+    color: #75403b;
+}
+
+div.comment{
+    font-size: 15px;
+    color: #75403b;
+    width: 190px;
+    height:21.42px;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
