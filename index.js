@@ -20,15 +20,20 @@
 
     for(const item of recentList) {
         const a = document.createElement('a');
+        a.classList.add('to-critique')
         a.href = `readOneCritique.html?critique_no=${item.critique_no}`
         const article = document.createElement('div');
         const articleNo = item.critique_no;
-        article.classList.add(`${articleNo}`);
+        article.id = `${articleNo}`
+        article.classList.add(`recent-article`);
         
+        const imgBox = document.createElement('div');
+        imgBox.classList.add('imgBox');
         const cover = item.cover;
         const recentCover = document.createElement('img');
         recentCover.classList.add("cover")
         recentCover.src = cover;
+        imgBox.append(recentCover)
 
         const nickname = item.nickname;
         const recentNickname = document.createElement('div');
@@ -45,14 +50,14 @@
         recentComment.classList.add('comment');
         recentComment.innerText = comment;
 
-        article.append(recentCover, recentNickname, recentStarGrade, recentComment)
+        article.append(imgBox, recentNickname, recentStarGrade, recentComment)
         a.append(article)
         recentCritique.append(a)
     }
 })();
 
 async function search() {
-    const searchword = document.querySelector('input[name="book-search"]').value.trim();
+    const searchword = document.querySelector('input#book-search').value.trim();
     if(!searchword) {
         alert("검색어를 입력해주세요.");
         return;
@@ -114,8 +119,14 @@ async function iForgot() {
     location.href = "forgot.html"
 }
 
-async function enterkey() {
+async function enterkeyLogin() {
 	if (window.event.keyCode == 13) {
     	tryLogin()
+    }
+}
+
+async function enterkeySearch() {
+    if (window.event.keyCode == 13) {
+    	search()
     }
 }

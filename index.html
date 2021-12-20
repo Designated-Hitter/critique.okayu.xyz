@@ -3,20 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>오카유 크리틱</title>
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="index.js" defer></script>
     </head>
     <body>
-        <div>
+        <div class="page-top">
             <div class="search">
-                <input type="text" name="book-search">
+                <input onkeyup="enterkeySearch();"type="text" id="book-search" placeholder="만화나 라노벨의 제목을 입력하세요.">
                 <button class="search" onclick="search()">검색</button>
             </div>
             <div class="login-box">
-                <input type="email" name="email"><br/>
-                <input type="password" name="password"><br/>
-                <button class="join" onclick="tryJoin()">회원가입</button>
+                <div class="id-and-password">
+                    <input type="email" name="email"><br/>
+                    <input onkeyup="enterkeyLogin();"type="password" name="password">
+                </div>
                 <button class="login" onclick="tryLogin()">로그인</button><br/>
+                <button class="join" onclick="tryJoin()">회원가입</button>
                 <button class="forgot" onclick="iForgot()">비밀번호 찾기</button>
             </div>
             <div class="my-page" style="display:none">
@@ -26,7 +30,7 @@
             </div>    
         </div>
         <div class="recent-critique">
-            <label>최근 작성된 서평들</label>
+            <label class='recent-critique'>최근 작성된 서평들</label>
         </div>
 
     </body>
