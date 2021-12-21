@@ -1,0 +1,29 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: block;
+    width: 100%;
+    margin: 0 auto !important;
+    background-color: #eee !important;
+    max-width: 1106px;
+}
+
+h1{
+    text-align: center;
+}
+
+div.join{
+    text-align: center;
+    font-size: 20px;
+    border: 3px solid #e27dff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+label.alert{
+    color:rgb(117, 0, 0);
+    font-size: 15px;
+}
