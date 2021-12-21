@@ -9,7 +9,7 @@
 
     if(token) {
         const nickname = decoded.nickname;
-        const myPage = document.querySelector('div[name="myPage"]');
+        const myPage = document.querySelector('div[name="nickname"]');
         const nick = document.createElement('h1');
         nick.classList.add('nickname');
         nick.innerHTML = nickname + " 님의 개인페이지";
@@ -26,18 +26,31 @@
     
     for(const item of list) {
         const critiqueNo = item.critique_no;
+        const eachCritique = document.createElement('div');
+        eachCritique.classList.add('each');
+        const divCover = document.createElement('div');
+        divCover.classList.add('cover');
         const cover = document.createElement('img');
         cover.classList.add('cover')
         cover.src = item.cover;
+        divCover.append(cover);
         
+        const divStarGrade = document.createElement('div');
+        divStarGrade.classList.add('star-grade');
         const starGrade = document.createElement('label');
         starGrade.classList.add('star-grade');
         starGrade.innerHTML = "평점: " + item.star_grade;
+        divStarGrade.append(starGrade);
 
+        const divComment = document.createElement('div');
+        divComment.classList.add('comment');
         const comment = document.createElement('label');
-        comment.classList.add('comment')
+        comment.classList.add('comment');
         comment.innerHTML = "한줄평: " + item.comment;
+        divComment.append(comment)
 
+        const divButtons = document.createElement('div');
+        divButtons.classList.add('buttons');
         const deleteThis = document.createElement('button');
         deleteThis.classList.add("delete");
         deleteThis.innerText = "삭제";
@@ -47,8 +60,10 @@
         updateThis.classList.add("update");
         updateThis.innerText = "수정";
         updateThis.addEventListener("click", () => {modifyThisCritique(critiqueNo)})
+        divButtons.append(deleteThis, updateThis)
 
-        recentMyCritique.append(cover, starGrade, comment, deleteThis, updateThis);
+        eachCritique.append(divCover, divStarGrade, divComment, divButtons)
+        recentMyCritique.append(eachCritique);
     }
 
     //페이지 네이션
