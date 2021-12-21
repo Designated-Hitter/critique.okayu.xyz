@@ -3,29 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>개인정보 수정-오카유 크리틱</title>
+        <link rel="stylesheet" href="personalInfo.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="personalInfo.js" defer></script>
     </head>
     <body>
         <h1>개인정보 수정하기</h1><br />
-        <label>이전 비밀번호: </label>
-        <input type="password" name="old-password"><br /><br />
-        <label>비밀번호: </label>
-        <input type="password" name="password"><br />
-        <label>비밀번호 확인: </label>
-        <input type="password" name="password-confirm"><br /><br />
+        <div class="info">
+            <label>이전 비밀번호: </label>
+            <input type="password" name="old-password"><br /><br />
+            <label>새 비밀번호:  </label>
+            <input type="password" name="password"><br />
+            <label>비밀번호 확인: </label>
+            <input type="password" name="password-confirm"><br /><br />
 
-        <label>닉네임 입력: </label>
-        <input type="text" name="nickname"><br />
-        <label class="alert">닉네임은 최대 20자까지 입력할 수 있습니다.</label>
-        
-        <br /><br /><br /><br />
+            <label>닉네임 입력:  </label>
+            <input type="text" name="nickname"><br />
+            <label class="alert">닉네임은 최대 20자까지 입력할 수 있습니다.</label>
+            
+            <br /><br /><br />
 
-        <button onclick="tryUpdateInfo()">수정하기</button><br /><br />
-        <div class="withdraw">
-        <button onclick="tryDeleteInfo()">회원 탈퇴하기</button>
+            <button onclick="tryUpdateInfo()">수정하기</button><br /><br />
+            <div class="withdraw">
+                <button onclick="tryDeleteInfo()">회원 탈퇴하기</button>
+            </div>
         </div>
-
 
     </body>
 </html>
