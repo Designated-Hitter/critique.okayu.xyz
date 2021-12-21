@@ -11,6 +11,10 @@ body{
     max-width: 1106px;
 }
 
+h1{
+    text-align: center;
+}
+
 div.info{
     text-align: center;
     border: 3px solid #e27dff;
