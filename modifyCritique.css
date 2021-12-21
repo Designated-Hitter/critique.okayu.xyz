@@ -1,0 +1,12 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: block;
+    width: 100%;
+    margin: 0 auto !important;
+    background-color: #eee !important;
+    max-width: 1106px;
+}
