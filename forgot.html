@@ -3,13 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>비밀번호 찾기-오카유 크리틱</title>
+        <link rel="stylesheet" href="forgot.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="forgot.js" defer></script>
     </head>
     <body>
         <h1>비밀번호 찾기</h1>
-        <label>본인 확인을 통해 비밀번호를 재설정 하실 수 있습니다.</label><br /><br />
-        <label>이메일: </label><input type="email" name="email">
-        <button onclick="iForgot()">확인</button>
+        <div class="forgot">
+            <label>본인 확인을 통해 비밀번호를 재설정 하실 수 있습니다.</label><br /><br />
+            <label>이메일: </label><input type="email" name="email">
+            <button onclick="iForgot()">확인</button>
+        </div>
     </body>
 </html>
