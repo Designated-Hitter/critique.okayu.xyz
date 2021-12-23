@@ -23,19 +23,33 @@
 
     for(const item of critiqueData) {
         const critiqueDiv = document.querySelector('div.critique');
+        const eachCritique = document.createElement('div');
+        eachCritique.classList.add('each-critique');
         const toEachCritique = document.createElement('a');
-        toEachCritique.classList.add(`click-to-each-critique-${item.critique_no}`);
+        toEachCritique.classList.add(`click-to-each-critique`);
+        toEachCritique.setAttribute('id', `${item.critique_no}`)
         toEachCritique.href = `readOneCritique.html?critique_no=${item.critique_no}`;
+        const nicknameDiv = document.createElement('div');
+        nicknameDiv.classList.add('nickname')
         const nickname = document.createElement('label');
         nickname.classList.add('nickname');
         nickname.innerHTML = "리뷰어: " + item.nickname;
+        nicknameDiv.append(nickname);
+        const starGradeDiv = document.createElement('div');
+        starGradeDiv.classList.add('star-grade');
         const starGrade = document.createElement('label');
         starGrade.classList.add('star-grade');
         starGrade.innerHTML = "평점: " + item.star_grade;
-        const comment = document.createElement('label.comment');
+        starGradeDiv.append(starGrade)
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment')
+        const comment = document.createElement('label');
+        comment.classList.add('comment');
         comment.innerHTML = "한줄평: " + item.comment;
-        toEachCritique.append(nickname, starGrade, comment);
-        critiqueDiv.append(toEachCritique);
+        commentDiv.append(comment)
+        toEachCritique.append(nicknameDiv, starGradeDiv, commentDiv);
+        eachCritique.append(toEachCritique)
+        critiqueDiv.append(eachCritique);
         
         //수정 삭제 버튼은 나만 볼 수 있게
         if(item.nickname == myNickname){
@@ -44,13 +58,13 @@
             const deleteButton = document.createElement('button');
             deleteButton.classList.add("delete");
             deleteButton.innerText = "삭제";
-            deleteButton.addEventListener("click", () =>{deleteThisCritique(critiqueNo)});
+            deleteButton.addEventListener("click", () =>{deleteThisCritique(item.critique_no)});
             const modifyButton = document.createElement('button');
             modifyButton.classList.add("modify");
             modifyButton.innerText = "수정";
-            modifyButton.addEventListener("click", () => {modifyThisCritique(critiqueNo)});
+            modifyButton.addEventListener("click", () => {modifyThisCritique(item.critique_no)});
             footerButton.append(deleteButton, modifyButton);
-            critiqueDiv.append(footerButton);
+            eachCritique.append(footerButton);
         }
     }
 
