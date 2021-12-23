@@ -28,8 +28,9 @@
     //긴 서평은 나만 볼수 있게
     if(bookData.nickname == myNickname){
         const secret = document.querySelector('label.secret');
+        secret.innerText = "총평: "
         const critique = document.createElement('div.critique');
-        critique.innerText = "총평: " + bookData.critique;
+        critique.innerText = bookData.critique;
         secret.append(critique);
     }
     //수정 삭제 버튼은 나만 볼 수 있게
