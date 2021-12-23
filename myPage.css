@@ -30,11 +30,12 @@ div.each{
     display: inline-block;
     border-radius: 3px;
     width: 202px; 
-    height: 350px;
+    height: 400px;
     margin: 5px;
     padding: 5px;
     transition: all 0.5s;
     transition-delay: 0.4s;
+    vertical-align: middle;
 }
 div.cover{
     width: 190px;
