@@ -2,7 +2,7 @@
     const page = Number(new URLSearchParams(location.search).get("page") ?? 1);
     const token = localStorage.getItem("token");
     const decoded = parseJWT(token);
-    const myNickname = decoded.nickname;
+    const myNickname = decoded?.nickname;
 
     const bookId = Number(new URLSearchParams(location.search).get("book_id"));
     
@@ -141,6 +141,9 @@ async function deleteThisCritique(critiqueNo){
 };
 
 function parseJWT (token) {
+    if (!token) {
+        return {};
+    }
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {

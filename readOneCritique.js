@@ -1,7 +1,7 @@
 ;(async() => {
     const token = localStorage.getItem("token");
     const decoded = parseJWT(token);
-    const myNickname = decoded.nickname;
+    const myNickname = decoded?.nickname;
 
     const critiqueNo = Number(new URLSearchParams(location.search).get("critique_no"));
     
@@ -76,6 +76,9 @@ async function deleteThisCritique(critiqueNo){
 }
 
 function parseJWT (token) {
+    if (!token) {
+        return {};
+    }
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
