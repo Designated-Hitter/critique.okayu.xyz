@@ -6,11 +6,13 @@
     if(!token){
         alert("로그인 후 이용할 수 있는 기능입니다.");
         location.href = 'index.html';
+        return;
     };
 
     if(!verified) {
         alert('이메일 인증 후 이용할 수 있는 기능입니다.');
-        location.href = 'mypage.html';
+        location.href = `myPage.html`;
+        return;
     };
 
     const qs = new URLSearchParams(location.search)
