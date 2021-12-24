@@ -18,18 +18,51 @@ div.searched{
     display: inline-block;
     padding: 10px;
     margin: 10px;
+    width: 530px;
+    height: 412px;
     text-align: center;
+    vertical-align: center;
 }
 
 div.imgBox{
     width: 190px;
     height:280px;
+    text-align: center;
+    display: inline-block;
 }
 
 img.cover{
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+div.title{
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.author{
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.category{
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.publisher{
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 footer{
