@@ -31,3 +31,7 @@ img.cover{
     height: 100%;
     object-fit: contain;
 }
+
+footer{
+    margin: 10px;
+}
