@@ -25,14 +25,27 @@
     starGrade.innerHTML = "평점: " + bookData.star_grade;
     const comment = document.querySelector('label.comment');
     comment.innerHTML = "한줄평: " + bookData.comment;
+
+    const secret = document.querySelector('label.secret');
+    secret.innerText = "총평: "
+    secret.style.display = "none";
+    const critique = document.createElement('div');
+    critique.classList.add('critique');
+    const labelCritique = document.createElement('label');
+    labelCritique.classList.add('critique');
+    labelCritique.innerText = bookData.critique;
+    critique.append(labelCritique);
+    secret.append(critique);
+    
+    
+
     //긴 서평은 나만 볼수 있게
     if(bookData.nickname == myNickname){
-        const secret = document.querySelector('label.secret');
-        secret.innerText = "총평: "
-        const critique = document.createElement('div.critique');
-        critique.innerText = bookData.critique;
-        secret.append(critique);
+        const revealButton = document.querySelector('button.secret');
+        secret.style.display = "";
+        revealButton.style.display = 'none';
     }
+
     //수정 삭제 버튼은 나만 볼 수 있게
     if(bookData.nickname == myNickname){
         const footer = document.querySelector('footer');
@@ -71,6 +84,19 @@ async function deleteThisCritique(critiqueNo){
         }
         location.href="index.html";
     } else{
+        return;
+    }
+}
+
+async function reveal() {
+    
+    let revealButton = confirm('다른사람이 쓴 평론을 확인하시겠습니까? 스포일러일 수 있습니다.');
+    if(revealButton){
+        const secret = document.querySelector('label.secret');
+        secret.style.display = "";
+        const button = document.querySelector('button.secret');
+        button.style.display = "none";
+    } else {
         return;
     }
 }
