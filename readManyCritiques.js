@@ -42,9 +42,9 @@
         starGradeLabel.innerText = "평점: "
         const starGradeWrapper = document.createElement('div');
         starGradeWrapper.classList.add('star-grade-wrapper');
-        const starGrade = document.createElement('label')
+        const starGrade = document.createElement('label');
         starGrade.classList.add('star-grade');
-        starGrade.innerHTML = "★★★★★"
+        starGrade.innerHTML = "★★★★★";
         starGradeWrapper.append(starGrade);
         starGradeWrapper.style.width = `calc(70px * ${item.star_grade} / 10)`;
         starGradeDiv.append(starGradeLabel,starGradeWrapper)
@@ -53,9 +53,9 @@
         const comment = document.createElement('label');
         comment.classList.add('comment');
         comment.innerHTML = "한줄평: " + item.comment;
-        commentDiv.append(comment)
+        commentDiv.append(comment);
         toEachCritique.append(nicknameDiv, starGradeDiv, commentDiv);
-        eachCritique.append(toEachCritique)
+        eachCritique.append(toEachCritique);
         critiqueDiv.append(eachCritique);
         
         //수정 삭제 버튼은 나만 볼 수 있게
