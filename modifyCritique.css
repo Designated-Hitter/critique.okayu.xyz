@@ -58,3 +58,28 @@ textarea[name="critique"]{
     width: 470px;
     height: 220px;
 }
+
+.star {
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+}
+  
+.star input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.star span {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #e27dff;;
+    overflow: hidden;
+    pointer-events: none;
+}

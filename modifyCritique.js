@@ -33,11 +33,11 @@
     const critique = document.querySelector('textarea[name="critique"]');
     critique.value = bookData.critique;
 
-    // const drawStar = (target) => {
-    //     document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
-    // }
-
 })();
+
+function drawStar(target) {
+    document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+}
 
 async function modifyDocument() {
     const token = localStorage.getItem("token");
