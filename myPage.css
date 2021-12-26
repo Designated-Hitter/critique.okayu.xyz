@@ -36,6 +36,7 @@ div.each{
     transition: all 0.5s;
     transition-delay: 0.4s;
     vertical-align: middle;
+    color: black
 }
 div.cover{
     width: 190px;
@@ -50,4 +51,10 @@ img.cover{
 
 div.each:hover{
     box-shadow: 10px 10px 30px black;
+}
+
+div.star-grade-wrapper{
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
 }
