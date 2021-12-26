@@ -23,11 +23,13 @@
     cover.src = coverAddress;
     const author = document.querySelector('label.author');
     author.innerHTML = "작가: " + authorData;
-    // const drawStar = (target) => {
-    //     document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
-    // }
-
+    
+      
 })();
+
+function drawStar(target) {
+    document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+}
 
 async function writeDocument() {
     const token = localStorage.getItem("token");
@@ -68,3 +70,4 @@ function parseJWT (token) {
 
     return JSON.parse(jsonPayload);
 };
+
