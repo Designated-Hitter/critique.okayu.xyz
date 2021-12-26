@@ -82,3 +82,32 @@ div.star-grade-wrapper{
 label.comment{
     color: #75403b;
 }
+
+div.page{
+    width: 90%;
+    text-align: center;
+    display: inline-block;
+}
+
+a.pagination{
+    display: inline-block;
+    width: 44.56px;
+    font-size: 20px;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+a.arrow{
+    width: 140px;
+}
+
+a.now-page {
+    background-color: #AD9AEE;
+    color: white;
+}
+
+a.pagination:hover:not(.active) {
+    background-color: #ddd;
+}

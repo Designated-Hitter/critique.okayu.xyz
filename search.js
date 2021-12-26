@@ -74,6 +74,8 @@
 
     if(displayFirstPage !== firstPageOfAll) {
         const aPage = document.createElement('a');
+        aPage.classList.add('pagination');
+        aPage.classList.add('arrow')
         aPage.href = `search.html?keyword=${searchWord}&page=${displayFirstPage - 1}`;
         aPage.innerText = "이전 페이지";
 
@@ -82,6 +84,7 @@
 
     for (let p = displayFirstPage; p <= displayLastPage; p++) {
         const aPage = document.createElement('a');
+        aPage.classList.add('pagination');
         aPage.href = `search.html?keyword=${searchWord}&page=${p}`;
         aPage.innerText = p;
         
@@ -93,6 +96,8 @@
 
     if (displayLastPage !== lastPageOfAll) {
         const aPage = document.createElement('a');
+        aPage.classList.add('pagination');
+        aPage.classList.add('arrow')
         aPage.href = `search.html?keyword=${searchWord}&page=${displayLastPage + 1}`;
         aPage.innerText = "다음 페이지";
 

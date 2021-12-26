@@ -81,20 +81,20 @@
     const numberOfSearches = result.data.number_of_critiques;
     const firstPageOfAll = 1;
     const lastPageOfAll = Math.ceil(numberOfSearches / 10);
-    console.log(lastPageOfAll)
+    
     const firstPageOfThis = (Math.ceil(page / 10) - 1) * 10 + 1;
-    console.log(firstPageOfThis)
     const lastPageOfThis = Math.ceil(page / 10) * 10;
-    console.log(lastPageOfThis)
+
     const displayFirstPage = firstPageOfAll > firstPageOfThis ? firstPageOfAll : firstPageOfThis;
-    console.log(displayFirstPage)
     const displayLastPage = lastPageOfAll > lastPageOfThis ? lastPageOfThis : lastPageOfAll;
-    console.log(displayLastPage)
+
 
     const pagination = document.querySelector("div.page");
 
     if(displayFirstPage !== firstPageOfAll) {
         const aPage = document.createElement('a');
+        aPage.classList.add('pagination');
+        aPage.classList.add('arrow')
         aPage.href = `myPage.html?page=${displayFirstPage - 1}`;
         aPage.innerText = "이전 페이지";
 
@@ -103,6 +103,7 @@
 
     for (let p = displayFirstPage; p <= displayLastPage; p++) {
         const aPage = document.createElement('a');
+        aPage.classList.add('pagination');
         aPage.href = `myPage.html?page=${p}`;
         aPage.innerText = p;
         
@@ -114,6 +115,8 @@
 
     if (displayLastPage !== lastPageOfAll) {
         const aPage = document.createElement('a');
+        aPage.classList.add('pagination');
+        aPage.classList.add('arrow')
         aPage.href = `myPage.html?page=${displayLastPage + 1}`;
         aPage.innerText = "다음 페이지";
 
