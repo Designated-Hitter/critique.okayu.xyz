@@ -49,8 +49,22 @@ label.nickname{
     font-size: 20px;
 }
 
+div.star-grade{
+    vertical-align: middle;
+}
+
 label.star-grade{
     font-size: 20px;
+    vertical-align: middle;
+}
+
+div.star-grade-wrapper{
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    margin-left: 5px;
+
 }
 
 label.comment{

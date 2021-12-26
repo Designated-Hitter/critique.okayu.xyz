@@ -21,8 +21,17 @@
     author.innerHTML = "저자: " + bookData.author;
     const nickname = document.querySelector('label.nickname');
     nickname.innerHTML = "리뷰어: " + bookData.nickname;
+    const starGradeDiv = document.querySelector('div.star-grade');
     const starGrade = document.querySelector('label.star-grade');
-    starGrade.innerHTML = "평점: " + bookData.star_grade;
+    starGrade.innerText = "평점: ";
+    const starGradeWrapper = document.createElement('div');
+    starGradeWrapper.classList.add('star-grade-wrapper');
+    const starGradeCalc = document.createElement('label')
+    starGradeCalc.classList.add('star-grade-calc');
+    starGradeCalc.innerHTML = "★★★★★"
+    starGradeWrapper.append(starGradeCalc); 
+    starGradeWrapper.style.width = `calc(70px * ${bookData.star_grade} / 10)`;
+    starGradeDiv.append(starGrade, starGradeWrapper);
     const comment = document.querySelector('label.comment');
     comment.innerHTML = "한줄평: " + bookData.comment;
 

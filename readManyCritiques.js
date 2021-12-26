@@ -37,10 +37,17 @@
         nicknameDiv.append(nickname);
         const starGradeDiv = document.createElement('div');
         starGradeDiv.classList.add('star-grade');
-        const starGrade = document.createElement('label');
+        const starGradeLabel = document.createElement('label');
+        starGradeLabel.classList.add('star-grade');
+        starGradeLabel.innerText = "평점: "
+        const starGradeWrapper = document.createElement('div');
+        starGradeWrapper.classList.add('star-grade-wrapper');
+        const starGrade = document.createElement('label')
         starGrade.classList.add('star-grade');
-        starGrade.innerHTML = "평점: " + item.star_grade;
-        starGradeDiv.append(starGrade)
+        starGrade.innerHTML = "★★★★★"
+        starGradeWrapper.append(starGrade);
+        starGradeWrapper.style.width = `calc(70px * ${item.star_grade} / 10)`;
+        starGradeDiv.append(starGradeLabel,starGradeWrapper)
         const commentDiv = document.createElement('div');
         commentDiv.classList.add('comment')
         const comment = document.createElement('label');
