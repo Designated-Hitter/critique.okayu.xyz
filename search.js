@@ -112,6 +112,12 @@ async function writeCritique(itemId, author, cover) {
     location.href = `writeCritique.html?itemId=${writeItemId}&author=${writeAuthor}&cover=${writeCover}`;
 };
 
+async function enterkeySearch() {
+    if (window.event.keyCode == 13) {
+    	aladinSearch()
+    }
+}
+
 async function aladinSearch(){ 
     const searchWord = document.querySelector('input[name="aladin-search"]').value;
     location.href = `advSearch.html?keyword=${searchWord}`;
