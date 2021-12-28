@@ -128,13 +128,15 @@
     const updatePersonalInfo = document.querySelector('div[name="updateMyInfo"]');
     const updatePersonalInfoButton = document.createElement("button");
     updatePersonalInfoButton.classList.add("update-personal-info");
-    updatePersonalInfoButton.innerText = "개인정보 수정"
+    updatePersonalInfoButton.classList.add("button-61");
+    updatePersonalInfoButton.innerText = "개인정보 수정";
     updatePersonalInfoButton.addEventListener("click", updateInfo);
     updatePersonalInfo.append(updatePersonalInfoButton);
 
     if(!decoded.verified) {
         const resendVerificationEmail = document.createElement("button");
         resendVerificationEmail.classList.add('reverify');
+        resendVerificationEmail.classList.add('button-61');
         resendVerificationEmail.innerHTML = "이메일 재인증하기";
         resendVerificationEmail.addEventListener('click', reverify);
         updatePersonalInfo.append(resendVerificationEmail);

@@ -12,21 +12,21 @@
         <div class="page-top">
             <div class="search">
                 <input onkeyup="enterkeySearch()" type="text" id="book-search" placeholder="만화나 라노벨의 제목을 입력하세요.">
-                <button class="search" onclick="search()">검색</button>
+                <button class="search" onclick="search()" type="submit" >검색</button>
             </div>
             <div class="login-box">
                 <div class="id-and-password">
-                    <input type="email" name="email"><br/>
-                    <input onkeyup="enterkeyLogin();"type="password" name="password">
+                    <input type="email" name="email" placeholder="이메일"><br/>
+                    <input onkeyup="enterkeyLogin();"type="password" name="password" placeholder="비밀번호">
                 </div>
                 <button class="login" onclick="tryLogin()">로그인</button><br/>
-                <button class="join" onclick="tryJoin()">회원가입</button>
-                <button class="forgot" onclick="iForgot()">비밀번호 찾기</button>
+                <button class="join button-61" onclick="tryJoin()">회원가입</button>
+                <button class="forgot button-61" onclick="iForgot()">비밀번호 찾기</button>
             </div>
             <div class="my-page" style="display:none">
                 <a class="myPage" onclick="myPage()"></a> <br>
-                <button class="update" onclick="updateInfo()">개인정보 수정</buttton><br>
-                <button class="log-out" onclick="tryLogout()">로그아웃</button>
+                <button class="update button-61" onclick="updateInfo()">개인정보 수정</buttton><br>
+                <button class="log-out button-61" onclick="tryLogout()">로그아웃</button>
             </div>    
         </div>
         <div class="recent-critique">
