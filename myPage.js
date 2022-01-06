@@ -19,7 +19,7 @@
     //자기가 최근 작성한 서평들
     const result = await axios({
         method: "GET",
-        url: `https://api.critique.okayu.xyz/critique/individual?email=${decoded.email}&page=${page}`
+        url: `https://api.critique.okayu.xyz/critique/individual?nickname=${decoded.nickname}&page=${page}`
     })
     const list = result.data.result
     const recentMyCritique = document.querySelector('div[name="recentCritique"]');
