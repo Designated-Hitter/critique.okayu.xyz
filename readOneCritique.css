@@ -39,6 +39,7 @@ label.title{
 
 label.title:hover{
     cursor:pointer;
+    text-decoration: underline;
 }
 
 label.author{
@@ -47,6 +48,12 @@ label.author{
 
 label.nickname{
     font-size: 20px;
+    color: black;
+}
+
+label.nickname:hover{
+    cursor:pointer;
+    text-decoration: underline;
 }
 
 div.star-grade{

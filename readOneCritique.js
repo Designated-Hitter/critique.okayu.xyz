@@ -10,39 +10,57 @@
         url: `https://api.critique.okayu.xyz/critique/critique_no/${critiqueNo}`
     })
     const bookData = result.data.result;
-    const a = document.querySelector('a[name="to-entire-critique"]');
-    a.classList.add(`to-entire-critique-${bookData.book_id}`);
-    a.href = `/readManyCritiques.html?book_id=${bookData.book_id}`;
+
+    const aCritique = document.querySelector('a[name="to-entire-critique"]');
+    aCritique.classList.add(`to-entire-critique-${bookData.book_id}`);
+    aCritique.href = `/readManyCritiques.html?book_id=${bookData.book_id}`;
+
     const cover = document.querySelector('img.cover');
     cover.src = bookData.cover;
+
     const title = document.querySelector('label.title');
     title.innerHTML = "제목: " + bookData.title;
+
+    
     const author = document.querySelector('label.author');
     author.innerHTML = "저자: " + bookData.author;
+
+    const aPersonalPage = document.querySelector('a[name="to-personal-page"]');
+    aPersonalPage.classList.add(`to-personal-page-${bookData.nickname}`);
+    aPersonalPage.href = `/personalPage.html?nickname=${bookData.nickname}`
+
     const nickname = document.querySelector('label.nickname');
     nickname.innerHTML = "리뷰어: " + bookData.nickname;
+
     const starGradeDiv = document.querySelector('div.star-grade');
     const starGrade = document.querySelector('label.star-grade');
     starGrade.innerText = "평점: ";
+    
     const starGradeWrapper = document.createElement('div');
     starGradeWrapper.classList.add('star-grade-wrapper');
+    
     const starGradeCalc = document.createElement('label')
     starGradeCalc.classList.add('star-grade-calc');
     starGradeCalc.innerHTML = "★★★★★"
+    
     starGradeWrapper.append(starGradeCalc); 
     starGradeWrapper.style.width = `calc(70px * ${bookData.star_grade} / 10)`;
     starGradeDiv.append(starGrade, starGradeWrapper);
+    
     const comment = document.querySelector('label.comment');
     comment.innerHTML = "한줄평: " + bookData.comment;
 
     const secret = document.querySelector('label.secret');
     secret.innerText = "총평: "
     secret.style.display = "none";
+    
     const critique = document.createElement('div');
     critique.classList.add('critique');
+    
     const labelCritique = document.createElement('label');
     labelCritique.classList.add('critique');
     labelCritique.innerText = bookData.critique;
+    
     critique.append(labelCritique);
     secret.append(critique);
     
@@ -62,6 +80,7 @@
         deleteButton.classList.add("delete");
         deleteButton.innerText = "삭제";
         deleteButton.addEventListener("click", () =>{deleteThisCritique(critiqueNo)});
+        
         const modifyButton = document.createElement('button');
         modifyButton.classList.add("modify");
         modifyButton.innerText = "수정";
