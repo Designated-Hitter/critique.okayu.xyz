@@ -32,25 +32,33 @@
     
     for(const item of list) {
         const critiqueNo = item.critique_no;
+        
         const aToOneCritique = document.createElement('a');
         aToOneCritique.classList.add(`to-critique-${critiqueNo}`);
         aToOneCritique.href =`readOneCritique.html?critique_no=${critiqueNo}`
+        
         const eachCritique = document.createElement('div');
         eachCritique.classList.add('each');
+        
         const divCover = document.createElement('div');
         divCover.classList.add('cover');
+        
         const cover = document.createElement('img');
         cover.classList.add('cover')
         cover.src = item.cover;
         divCover.append(cover);
         
         const divStarGrade = document.createElement('div');
+        
         divStarGrade.classList.add('star-grade');
+        
         const starGradeLabel = document.createElement('label');
         starGradeLabel.classList.add('star-grade');
         starGradeLabel.innerHTML = "평점: " ;
+        
         const starGradeWrapper = document.createElement('div');
         starGradeWrapper.classList.add('star-grade-wrapper');
+        
         const starGrade = document.createElement('label');
         starGrade.classList.add('star-grade');
         starGrade.innerHTML = "★★★★★";
@@ -60,6 +68,7 @@
 
         const divComment = document.createElement('div');
         divComment.classList.add('comment');
+        
         const comment = document.createElement('label');
         comment.classList.add('comment');
         comment.innerHTML = "한줄평: " + item.comment;

@@ -29,22 +29,29 @@
         const aToOneCritique = document.createElement('a');
         aToOneCritique.classList.add(`to-critique-${critiqueNo}`);
         aToOneCritique.href =`readOneCritique.html?critique_no=${critiqueNo}`
+        
         const eachCritique = document.createElement('div');
         eachCritique.classList.add('each');
+        
         const divCover = document.createElement('div');
         divCover.classList.add('cover');
+        
         const cover = document.createElement('img');
         cover.classList.add('cover')
         cover.src = item.cover;
         divCover.append(cover);
         
+
         const divStarGrade = document.createElement('div');
         divStarGrade.classList.add('star-grade');
+        
         const starGradeLabel = document.createElement('label');
         starGradeLabel.classList.add('star-grade');
         starGradeLabel.innerHTML = "평점: " ;
+        
         const starGradeWrapper = document.createElement('div');
         starGradeWrapper.classList.add('star-grade-wrapper');
+        
         const starGrade = document.createElement('label');
         starGrade.classList.add('star-grade');
         starGrade.innerHTML = "★★★★★";
@@ -52,15 +59,19 @@
         starGradeWrapper.style.width = `calc(75px * ${item.star_grade} / 10)`;
         divStarGrade.append(starGradeLabel,starGradeWrapper);
 
+
         const divComment = document.createElement('div');
         divComment.classList.add('comment');
+        
         const comment = document.createElement('label');
         comment.classList.add('comment');
         comment.innerHTML = "한줄평: " + item.comment;
         divComment.append(comment)
 
+
         const divButtons = document.createElement('div');
         divButtons.classList.add('buttons');
+        
         const deleteThis = document.createElement('button');
         deleteThis.classList.add("delete");
         deleteThis.innerText = "삭제";
@@ -159,7 +170,7 @@ async function modifyThisCritique(critiqueNo){
     location.href = `modifyCritique.html?critique_no=${critiqueNo}`;
 }
 
-//서평 삭제
+//서평 삭제 -- 왜 해당 서평 페이지로 가는지 의문
 async function deleteThisCritique(critiqueNo){
     let confirmButton = confirm("정말로 삭제하시겠습니까?")
     if(confirmButton){
@@ -175,8 +186,9 @@ async function deleteThisCritique(critiqueNo){
         } else {
             alert(result.data.message);
         }
-        location.href="index.html";
+        location.href="myPage.html";
     } else{
+        location.href="myPage.html";
         return;
     }
 }
